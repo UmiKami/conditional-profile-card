@@ -22,6 +22,7 @@ import "../style/index.css";
         city: null
     }
  */
+
 function render(variables = {}) {
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
@@ -31,31 +32,31 @@ function render(variables = {}) {
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
-            ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name ? variables.name : "Mi"} ${
+              ${cover}
+            <img src="${variables.avatarURL}" class="photo" />
+            <h1>${variables.name ? variables.name : "Mi"} ${
     variables.lastname ? variables.lastname : "Lee"
   }</h1>
-          <h2>${variables.role ? variables.role : "Unemployeed"}</h2>
-          <h3>${variables.city ? variables.city : "Somewhere"}, ${
+            <h2>${variables.role ? variables.role : "Unemployeed"}</h2>
+            <h3>${variables.city ? variables.city : "Somewhere"}, ${
     variables.country ? variables.country : "Somewhere"
   }</h3>
-          <ul class=" ${variables.socialMediaPosition}">
-            <li><a href="${
-              variables.twitter
-            }"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="${
-              variables.github
-            }"><i class="fab fa-github"></i></a></li>
-            <li><a href="${
-              variables.linkedin
-            }"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="${
-              variables.instagram
-            }"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-        </div>
-    `;
+            <ul class=" ${variables.socialMediaPosition}">
+              <li><a href="${
+                variables.twitter
+              }"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="${
+                variables.github
+              }"><i class="fab fa-github"></i></a></li>
+              <li><a href="${
+                variables.linkedin
+              }"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="${
+                variables.instagram
+              }"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+      `;
 }
 
 /**
@@ -85,7 +86,7 @@ window.onload = function() {
   render(window.variables); //render the card for the first time
 
   document.querySelectorAll(".picker").forEach(function(elm) {
-    elm.addEventListener("change", function(e) {
+    elm.addEventListener("keyup", function(e) {
       // <- add a listener to every input
       const attribute = e.target.getAttribute("for"); // when any input changes, collect the value
       let values = {};
